@@ -1,5 +1,5 @@
 /** US phone input mask: (555) 123-4567. */
-export const US_PHONE_PATTERN = '\(\d{3}\) \d{3}-\d{4}';
+export const US_PHONE_PATTERN = String.raw`\(\d{3}\) \d{3}-\d{4}`;
 export const US_PHONE_HINT = 'Enter a 10-digit US number: (555) 123-4567';
 
 const digitsOf = (value) => {
