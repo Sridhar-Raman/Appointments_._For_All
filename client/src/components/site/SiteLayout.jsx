@@ -9,8 +9,8 @@ import useScrolled from './useScrolled';
 // Every public page is a section of the home screen; the menu scrolls to it and follows the scroll position.
 const LINKS = [
     { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
     { id: 'gallery', label: 'Gallery' },
+    { id: 'about', label: 'About' },
     { id: 'faq', label: 'FAQ' },
 ];
 

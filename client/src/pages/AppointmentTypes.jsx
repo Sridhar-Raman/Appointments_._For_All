@@ -7,7 +7,7 @@ import Modal from '../components/Modal';
 import PageHeader from '../components/PageHeader';
 import { useAuth } from '../context/AuthContext';
 
-const EMPTY = { name: '', description: '', durationMinutes: 30, bufferMinutes: 0, color: '#227d88', active: true };
+const EMPTY = { name: '', description: '', durationMinutes: 30, bufferMinutes: 0, color: '#253e85', active: true };
 
 const TypeModal = ({ type, onClose, onSaved }) => {
     const [form, setForm] = useState(() => (type ? {

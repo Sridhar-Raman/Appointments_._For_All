@@ -1,79 +1,86 @@
 /* =========================================================
    Design tokens
    ========================================================= */
-/* Palette: Taupe #e7e6e1 · Mauve #a1dde3 · Maroon #227d88 · Puce #11585d */
+/* Veylo palette: navy ink, slate text, hot-pink accent on a sky-to-blush canvas. */
 :root {
-  --taupe: #e7e6e1;
-  --mauve: #a1dde3;
-  --maroon: #227d88;
-  --puce: #11585d;
+  --navy: #162755;
+  --navy-2: #121f44;
+  --pink: #ff268b;
+  --pink-soft: #ff9fd2;
+  --sky: #b3d4ff;
+  --taupe: #f4f6fb;
+  --mauve: #ff9fd2;
+  --maroon: #162755;
+  --puce: #162755;
 
-  --bg: var(--mauve);
-  --surface: #f4f3ef;
-  --surface-2: #edece7;
-  --text: #0c3033;
-  --text-2: #296065;
-  --muted: #336b70;
-  --border: #e0dcd8;
-  --border-strong: #c9c2c4;
+  --bg: #e3ecff;
+  --bg-image: linear-gradient(180deg, #b3d4ff 0%, #d6dcfa 38%, #ffe0ef 78%, #fff3f8 100%);
+  --surface: #ffffff;
+  --surface-2: #f3f5fb;
+  --text: #162755;
+  --text-2: #3a4468;
+  --muted: #525870;
+  --border: rgba(82, 88, 112, 0.16);
+  --border-strong: rgba(82, 88, 112, 0.32);
 
-  --primary: var(--maroon);
-  --primary-hover: #1b656d;
+  --primary: #162755;
+  --primary-hover: #0f1d40;
   --on-primary: #ffffff;
-  --primary-soft: rgba(161, 221, 227, 0.45);
-  --primary-text: var(--puce);
-  --accent: var(--mauve);
-  --success: #3d6b4a;
-  --success-soft: #dde9df;
-  --danger: #b3261e;
-  --danger-soft: #f6d9d6;
-  --warning: #8f5a14;
-  --warning-soft: #f2e2c4;
+  --primary-soft: rgba(22, 39, 85, 0.07);
+  --primary-text: #162755;
+  --accent: #ff268b;
+  --success: #17703c;
+  --success-soft: #dcf3e5;
+  --danger: #c4213f;
+  --danger-soft: #fde3e8;
+  --warning: #9a5b0a;
+  --warning-soft: #f9e8c8;
 
-  --chart-past: #add6d9;
-  --chart-future: #6bc8d2;
-  --sidebar-bg: var(--puce);
-  --sidebar-text: #a9d7da;
-  --sidebar-active: rgba(161, 221, 227, 0.18);
+  --chart-past: #ffc4e1;
+  --chart-future: #ff4fa3;
+  --sidebar-bg: #162755;
+  --sidebar-text: #b9c4e6;
+  --sidebar-active: rgba(255, 255, 255, 0.12);
 
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow-sm: 0 1px 2px rgba(10, 65, 70, 0.08);
-  --shadow-md: 0 4px 16px rgba(10, 65, 70, 0.12);
-  --shadow-lg: 0 24px 60px rgba(6, 41, 44, 0.34);
-  --ring: 0 0 0 3px rgba(34, 125, 136, 0.3);
-  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 2px rgba(22, 39, 85, 0.08);
+  --shadow-md: 0 8px 28px rgba(22, 39, 85, 0.12);
+  --shadow-lg: 0 24px 60px rgba(18, 31, 68, 0.3);
+  --ring: 0 0 0 3px rgba(255, 38, 139, 0.28);
+  --font: 'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0a1e1f;
-    --surface: #0e2b2e;
-    --surface-2: #143538;
-    --text: #e7e6e1;
-    --text-2: #b9dadd;
-    --muted: #7db7bb;
-    --border: #1f4649;
-    --border-strong: #296065;
+    --bg: #0c1430;
+    --bg-image: linear-gradient(180deg, #121f44 0%, #0c1430 100%);
+    --surface: #141d3d;
+    --surface-2: #1b2650;
+    --text: #eef2ff;
+    --text-2: #cdd5f2;
+    --muted: #9aa5cc;
+    --border: rgba(154, 165, 204, 0.18);
+    --border-strong: rgba(154, 165, 204, 0.36);
 
-    --primary: var(--mauve);
-    --primary-hover: #b6e8ed;
-    --on-primary: #0c3033;
-    --primary-soft: rgba(161, 221, 227, 0.16);
-    --primary-text: #cdf2f5;
-    --success: #9fd0ac;
-    --success-soft: rgba(159, 208, 172, 0.14);
-    --danger: #f19a92;
-    --danger-soft: rgba(241, 154, 146, 0.14);
+    --primary: #ff5aa9;
+    --primary-hover: #ff7bbb;
+    --on-primary: #1a0a14;
+    --primary-soft: rgba(255, 90, 169, 0.14);
+    --primary-text: #ffd0e8;
+    --success: #8fd6a5;
+    --success-soft: rgba(143, 214, 165, 0.14);
+    --danger: #ff9aab;
+    --danger-soft: rgba(255, 154, 171, 0.14);
     --warning: #f0c477;
     --warning-soft: rgba(240, 196, 119, 0.14);
 
-    --chart-past: #2d575a;
-    --chart-future: #5dabb2;
-    --sidebar-bg: #041516;
+    --chart-past: #3a2a52;
+    --chart-future: #ff5aa9;
+    --sidebar-bg: #0a1028;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
-    --ring: 0 0 0 3px rgba(161, 221, 227, 0.38);
+    --ring: 0 0 0 3px rgba(255, 90, 169, 0.4);
   }
 }
 
@@ -84,9 +91,9 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; font-family: var(--font); font-size: 14px; line-height: 1.5;
-  background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased;
+  background: var(--bg-image, var(--bg)) fixed, var(--bg); color: var(--text); -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, h4 { margin: 0; line-height: 1.25; letter-spacing: -0.01em; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.2; letter-spacing: -0.03em; font-weight: 600; }
 p { margin: 0; }
 button, input, select, textarea { font: inherit; color: inherit; }
 :focus-visible { outline: none; box-shadow: var(--ring); }
@@ -125,9 +132,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   color: rgba(231, 230, 225, 0.55); text-decoration: none; font-size: 15px; font-weight: 600; transition: color .15s, background .15s, box-shadow .15s;
 }
 .sidebar nav a svg { width: 24px; height: 24px; flex-shrink: 0; transition: transform .15s; }
-.sidebar nav a:hover { color: #fff; background: rgba(161, 221, 227, 0.1); }
+.sidebar nav a:hover { color: #fff; background: rgba(163, 179, 225, 0.1); }
 .sidebar nav a:hover svg { transform: scale(1.08); }
-.sidebar nav a.active { color: #fff; background: rgba(161, 221, 227, 0.22); box-shadow: inset 0 0 0 1px rgba(161, 221, 227, 0.38); }
+.sidebar nav a.active { color: #fff; background: rgba(163, 179, 225, 0.22); box-shadow: inset 0 0 0 1px rgba(163, 179, 225, 0.38); }
 .sidebar nav a.active svg { stroke-width: 2.4; color: var(--mauve); }
 .sidebar nav a.active::before { content: ''; position: absolute; left: -10px; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: var(--mauve); }
 .brand-name, .nav-text, .sidebar-foot .who { opacity: 0; transform: translateX(-8px); transition: opacity .18s ease, transform .24s ease; }
@@ -137,14 +144,14 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .sidebar-foot { display: flex; align-items: center; gap: 14px; padding: 0 21px; white-space: nowrap; }
 .sidebar-foot .who { flex: 1; min-width: 0; color: var(--taupe); font-weight: 600; }
 .sidebar-foot .who span { display: block; overflow: hidden; text-overflow: ellipsis; }
-.sidebar-foot .who small { display: block; color: #73b3b9; font-weight: 500; text-transform: capitalize; }
-.sidebar .icon-btn { color: #99d0d5; }
-.sidebar .icon-btn:hover { background: rgba(161, 221, 227, 0.14); color: var(--taupe); }
+.sidebar-foot .who small { display: block; color: #7586b7; font-weight: 500; text-transform: capitalize; }
+.sidebar .icon-btn { color: #9baad4; }
+.sidebar .icon-btn:hover { background: rgba(163, 179, 225, 0.14); color: var(--taupe); }
 .avatar {
   width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center;
   font-weight: 700; font-size: 13px; background: var(--primary-soft); color: var(--primary-text); text-transform: uppercase;
 }
-.sidebar .avatar { background: rgba(161, 221, 227, 0.24); color: var(--taupe); }
+.sidebar .avatar { background: rgba(163, 179, 225, 0.24); color: var(--taupe); }
 .content { margin-left: var(--rail); min-width: 0; padding: 32px 36px 48px; }
 .page { max-width: 1280px; margin: 0 auto; }
 
@@ -289,7 +296,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 .login-shell { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
 .login-art {
   position: relative; overflow: hidden; color: #fff; padding: 56px; display: flex; flex-direction: column; justify-content: space-between;
-  background: radial-gradient(1100px 600px at 0% 0%, #248c98 0%, transparent 62%), radial-gradient(900px 520px at 100% 100%, rgba(161, 221, 227, 0.5) 0%, transparent 58%), var(--puce);
+  background: radial-gradient(1100px 600px at 0% 0%, #274495 0%, transparent 62%), radial-gradient(900px 520px at 100% 100%, rgba(163, 179, 225, 0.5) 0%, transparent 58%), var(--puce);
 }
 .login-art h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; max-width: 420px; }
 .login-art p { margin-top: 14px; color: var(--mauve); font-size: 16px; max-width: 420px; }
@@ -308,7 +315,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
    ========================================================= */
 .modal-backdrop {
   position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px;
-  background: rgba(7, 46, 49, 0.55); backdrop-filter: blur(2px); animation: fade .15s ease-out;
+  background: rgba(8, 19, 48, 0.55); backdrop-filter: blur(2px); animation: fade .15s ease-out;
 }
 .modal-card { width: 100%; display: flex; flex-direction: column; max-height: calc(100dvh - 40px); overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); animation: pop .18s ease-out; }
 .modal-head { flex: none; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--border); }
@@ -343,7 +350,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 .cal-card {
   /* The whole calendar is Taupe (#e7e6e1) in both themes, so it also carries the light-theme text/line colours. */
   --calendar-bg: #e7e6e1;
-  --text: #0c3033; --text-2: #296065; --muted: #336b70; --border: #d6d3cc; --border-strong: #bdb8b3; --primary: #227d88;
+  --text: #0d1732; --text-2: #2b3a63; --muted: #35446e; --border: #d6d3cc; --border-strong: #bdb8b3; --primary: #253e85;
   padding: 12px; overflow: hidden; background: var(--calendar-bg); color: var(--text);
 }
 
@@ -384,7 +391,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
   /* Phones/tablets: the rail becomes a bottom tab bar with always-visible labels. */
   .sidebar, .sidebar:hover, .sidebar:has(:focus-visible) {
     --fade: 0px; inset: auto 0 0 0; width: 100%; height: 64px; padding: 0 8px; flex-direction: row; align-items: stretch;
-    background: var(--sidebar-bg); border-top: 1px solid rgba(161, 221, 227, 0.16); overflow: visible;
+    background: var(--sidebar-bg); border-top: 1px solid rgba(163, 179, 225, 0.16); overflow: visible;
   }
   .brand, .sidebar-foot .avatar, .sidebar-foot .who { display: none; }
   .sidebar nav { flex-direction: row; justify-content: space-around; gap: 0; }
@@ -446,7 +453,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 @media (prefers-reduced-motion: reduce) { .chart-bar, .donut-seg { animation: none; } .hbar-fill { transition: none; } }
 
 /* ---------- Log out in the side menu ---------- */
-.sidebar-user { display: flex; flex-direction: column; gap: 8px; margin: 0 10px; padding-top: 14px; border-top: 1px solid rgba(161, 221, 227, 0.16); }
+.sidebar-user { display: flex; flex-direction: column; gap: 8px; margin: 0 10px; padding-top: 14px; border-top: 1px solid rgba(163, 179, 225, 0.16); }
 .sidebar-user .sidebar-foot { padding: 0 11px; }
 .sidebar-logout {
   position: relative; display: flex; align-items: center; gap: 20px; height: 46px; margin: 0; padding: 0 16px; border: 1px solid transparent;
@@ -465,7 +472,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 /* ---------- calendar: active-filter chips + list view ---------- */
 .filter-chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; font-size: 13.5px; }
 .chip { display: inline-flex; align-items: center; padding: 3px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); font-weight: 600; }
-.fc { --fc-list-event-hover-bg-color: rgba(34, 125, 136, 0.07); }
+.fc { --fc-list-event-hover-bg-color: rgba(37, 62, 133, 0.07); }
 .fc .fc-list { border-color: var(--border); }
 .fc .fc-list-day-cushion { background: var(--fc-neutral-bg-color); }
 .fc .fc-list-day-text, .fc .fc-list-day-side-text { color: var(--text); text-decoration: none; font-weight: 700; font-size: 13px; }
@@ -489,9 +496,9 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 .auth-content {
   position: relative; isolation: isolate; overflow: hidden; display: grid; place-items: center; min-height: 100vh; padding: 32px 24px;
   background:
-    radial-gradient(900px 520px at 8% 0%, rgba(255, 255, 255, 0.38), transparent 62%),
-    radial-gradient(760px 520px at 100% 100%, rgba(34, 125, 136, 0.26), transparent 62%),
-    linear-gradient(160deg, #b6e8ed 0%, #a1dde3 48%, #87d2d9 100%);
+    radial-gradient(900px 520px at 8% 0%, rgba(255, 255, 255, 0.45), transparent 62%),
+    radial-gradient(760px 520px at 100% 100%, rgba(255, 38, 139, 0.16), transparent 62%),
+    linear-gradient(180deg, #b3d4ff 0%, #d3dbfa 40%, #ffdcee 100%);
 }
 .auth-content > :not(.auth-bg) { position: relative; z-index: 1; }
 
@@ -500,15 +507,15 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 /* a fine dot grid, like calendar days, fading out behind the form */
 .auth-bg::before {
   content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(17, 88, 93, 0.2) 1.3px, transparent 1.6px); background-size: 28px 28px;
+  background-image: radial-gradient(rgba(22, 39, 85, 0.16) 1.3px, transparent 1.6px); background-size: 28px 28px;
   -webkit-mask-image: radial-gradient(ellipse 46% 52% at 50% 50%, transparent 38%, #000 100%);
   mask-image: radial-gradient(ellipse 46% 52% at 50% 50%, transparent 38%, #000 100%);
 }
 .auth-glow { position: absolute; border-radius: 50%; filter: blur(70px); }
-.auth-glow.g1 { width: 460px; height: 460px; top: -140px; right: -100px; background: rgba(34, 125, 136, 0.34); }
+.auth-glow.g1 { width: 460px; height: 460px; top: -140px; right: -100px; background: rgba(255, 255, 255, 0.55); }
 .auth-glow.g2 { width: 420px; height: 420px; bottom: -150px; left: -90px; background: rgba(255, 255, 255, 0.5); }
-.auth-glow.g3 { width: 300px; height: 300px; top: 38%; left: 52%; background: rgba(17, 88, 93, 0.14); }
-.auth-deco { position: absolute; color: #227d88; opacity: 0.17; animation: drift 11s ease-in-out infinite alternate; }
+.auth-glow.g3 { width: 300px; height: 300px; top: 38%; left: 52%; background: rgba(255, 38, 139, 0.12); }
+.auth-deco { position: absolute; color: #162755; opacity: 0.1; animation: drift 11s ease-in-out infinite alternate; }
 .deco-calendar { width: 280px; left: 5%; bottom: 7%; --r: -11deg; transform: rotate(var(--r)); }
 .deco-clock { width: 210px; right: 6%; top: 9%; --r: 9deg; transform: rotate(var(--r)); animation-duration: 13s; }
 .deco-check { width: 130px; left: 11%; top: 12%; --r: -6deg; transform: rotate(var(--r)); animation-duration: 9s; }
@@ -517,15 +524,15 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 @media (prefers-color-scheme: dark) {
   .auth-content {
     background:
-      radial-gradient(900px 520px at 8% 0%, rgba(161, 221, 227, 0.12), transparent 62%),
-      radial-gradient(760px 520px at 100% 100%, rgba(34, 125, 136, 0.35), transparent 62%),
-      linear-gradient(160deg, #0d3033 0%, #092022 55%, #0b2c2e 100%);
+      radial-gradient(900px 520px at 8% 0%, rgba(163, 179, 225, 0.12), transparent 62%),
+      radial-gradient(760px 520px at 100% 100%, rgba(255, 38, 139, 0.18), transparent 62%),
+      linear-gradient(180deg, #121f44 0%, #0c1430 100%);
   }
-  .auth-bg::before { background-image: radial-gradient(rgba(161, 221, 227, 0.16) 1.3px, transparent 1.6px); }
-  .auth-glow.g1 { background: rgba(34, 125, 136, 0.5); }
-  .auth-glow.g2 { background: rgba(161, 221, 227, 0.12); }
-  .auth-glow.g3 { background: rgba(161, 221, 227, 0.07); }
-  .auth-deco { color: #a1dde3; opacity: 0.14; }
+  .auth-bg::before { background-image: radial-gradient(rgba(163, 179, 225, 0.16) 1.3px, transparent 1.6px); }
+  .auth-glow.g1 { background: rgba(29, 50, 112, 0.6); }
+  .auth-glow.g2 { background: rgba(163, 179, 225, 0.12); }
+  .auth-glow.g3 { background: rgba(163, 179, 225, 0.07); }
+  .auth-deco { color: #a3b3e1; opacity: 0.14; }
 }
 @media (prefers-reduced-motion: reduce) { .auth-deco { animation: none; } }
 .auth-content .auth-wrap { width: 100%; padding: 0; display: block; }
@@ -541,8 +548,8 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
 .mode-option { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; background: var(--surface); }
 .mode-option input { position: absolute; opacity: 0; pointer-events: none; }
 .mode-option small { color: var(--muted); }
-.mode-option.on { border-color: var(--primary, #227d88); box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary, #227d88) 25%, transparent); }
-.mode-option:has(input:focus-visible) { outline: 2px solid var(--primary, #227d88); outline-offset: 2px; }
+.mode-option.on { border-color: var(--primary, #253e85); box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary, #253e85) 25%, transparent); }
+.mode-option:has(input:focus-visible) { outline: 2px solid var(--primary, #253e85); outline-offset: 2px; }
 @media (max-width: 480px) { .mode-picker { grid-template-columns: 1fr; } }
 
 /* ---------- calendar screen: the page itself does not scroll, only the calendar grid does ----------

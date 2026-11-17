@@ -35,7 +35,7 @@ const INTERVALS = [
 ];
 const NO_FILTERS = { appointmentType: '', status: '', assignedTo: '', interval: '00:15:00', mine: false };
 
-const textColorOn = (hex = '#227d88') => {
+const textColorOn = (hex = '#253e85') => {
     const r = parseInt(hex.slice(1, 3), 16);
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
@@ -49,7 +49,7 @@ const MASKED_COLOR = '#c3cbe6';
 /** `readOnly` (clients): nothing is draggable. Other people's bookings arrive masked as plain "Booked" blocks. */
 const toEvent = (appointment, readOnly = false) => {
     const masked = !!appointment.masked;
-    const color = masked ? MASKED_COLOR : (appointment.appointmentType?.color || '#227d88');
+    const color = masked ? MASKED_COLOR : (appointment.appointmentType?.color || '#253e85');
     return {
         id: appointment._id,
         title: appointment.clientName,

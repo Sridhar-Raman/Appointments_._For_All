@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Icon from '../../components/Icon';
-import HeroArt from '../../components/site/HeroArt';
+import HeroPreview from '../../components/site/HeroPreview';
 import { homeFor, useAuth } from '../../context/AuthContext';
 import About from './About';
 import Faq from './Faq';
@@ -25,14 +25,19 @@ const Home = () => {
       <div id="home" className="site-section hero-wrap">
       <section className="hero">
         <div className="hero-copy">
-          <h1>Appointment<br />Booking</h1>
-          <p>Pick a service, choose a time that suits you and get booked in seconds. Everything you need to schedule, move or cancel an appointment — all in one place.</p>
+          <span className="hero-pill">Appointments, simplified</span>
+          <h1>Run every appointment from one calm calendar.</h1>
+          <p>SRI.CR brings services, live availability, reschedules and a team calendar together, with a clean view for every client and colleague in your workspace.</p>
           <div className="hero-actions">
-            <a href="#about" className="pill-btn">More</a>
-            <Link to={user ? homeFor(user) : '/signup'} className="pill-btn pill-ghost">{user ? 'Go to my account' : 'Book now'}<Icon name="arrow-right" size={16} /></Link>
+            {user
+              ? <Link to={homeFor(user)} className="pill-btn">Go to my account<Icon name="arrow-right" size={16} /></Link>
+              : (<>
+                <Link to="/signup" className="pill-btn">Create an account<Icon name="arrow-right" size={16} /></Link>
+                <Link to="/login" className="pill-btn pill-ghost">Log in</Link>
+              </>)}
           </div>
         </div>
-        <div className="hero-visual"><HeroArt /></div>
+        <div className="hero-visual"><HeroPreview /></div>
       </section>
 
       <section className="section" aria-labelledby="why-title">
@@ -66,8 +71,8 @@ const Home = () => {
 
       </div>
 
-      <div id="about" className="site-section"><About /></div>
       <div id="gallery" className="site-section"><Gallery /></div>
+      <div id="about" className="site-section"><About /></div>
       <div id="faq" className="site-section"><Faq /></div>
 
       <section className="cta-band">

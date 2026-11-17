@@ -10,7 +10,7 @@ import Icon from '../components/Icon';
 import PageHeader from '../components/PageHeader';
 import { useAuth } from '../context/AuthContext';
 
-const STATUS_TONES = { scheduled: '#227d88', completed: '#4f8a5e', 'no-show': '#c08a3e', cancelled: '#b3261e' };
+const STATUS_TONES = { scheduled: '#253e85', completed: '#4f8a5e', 'no-show': '#c08a3e', cancelled: '#b3261e' };
 
 /** A figure card. With `to` it is a link that opens the matching screen already filtered. */
 const Stat = ({ icon, tone, label, value, to, hint }) => {

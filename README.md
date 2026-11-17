@@ -71,7 +71,7 @@ npm run seed:admin        # creates the first admin
 # from the project root, start API + client together
 cd ..
 npm install
-npm run dev               # API http://localhost:5000, site http://localhost:5173
+npm run dev               # API on PORT from server/.env (default 5000), site http://localhost:5173
 ```
 
 Run the API tests (they use an in-memory MongoDB; the first run downloads a mongod binary, about 800 MB, once):
