@@ -18,7 +18,7 @@ const Faq = () => {
     return (<>
       <section className="page-hero">
         <span className="eyebrow">FAQ</span>
-        <h1>Frequently asked questions</h1>
+        <h2>Frequently asked questions</h2>
         <p>Quick answers about booking, changing and managing your appointments.</p>
       </section>
       <section className="section narrow">

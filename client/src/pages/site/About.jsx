@@ -10,7 +10,7 @@ const VALUES = [
 const About = () => (<>
   <section className="page-hero">
     <span className="eyebrow">About us</span>
-    <h1>Appointments, made simple</h1>
+    <h2>Appointments, made simple</h2>
     <p>We built a booking experience that gets out of the way, so clients can book in moments and teams can spend their time on the work itself.</p>
   </section>
 

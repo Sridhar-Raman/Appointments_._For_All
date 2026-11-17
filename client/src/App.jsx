@@ -12,9 +12,6 @@ import Profile from './pages/Profile';
 import ResetPassword from './pages/ResetPassword';
 import BookAppointment from './pages/portal/BookAppointment';
 import MyAppointments from './pages/portal/MyAppointments';
-import About from './pages/site/About';
-import Faq from './pages/site/Faq';
-import Gallery from './pages/site/Gallery';
 import Home from './pages/site/Home';
 import Signup from './pages/site/Signup';
 import Users from './pages/Users';
@@ -24,9 +21,10 @@ const App = () => (
     {/* Public marketing site */}
     <Route element={<SiteLayout />}>
       <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="gallery" element={<Gallery />} />
-      <Route path="faq" element={<Faq />} />
+      {/* the old separate pages are now sections of the home screen */}
+      <Route path="about" element={<Navigate to="/#about" replace />} />
+      <Route path="gallery" element={<Navigate to="/#gallery" replace />} />
+      <Route path="faq" element={<Navigate to="/#faq" replace />} />
     </Route>
 
     {/* Log in / Sign up use the app's layout (plum page + side menu), not the landing page's */}

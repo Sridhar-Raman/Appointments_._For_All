@@ -85,7 +85,7 @@ const Gallery = () => {
     return (<>
       <section className="page-hero">
         <span className="eyebrow">Gallery</span>
-        <h1>A look inside</h1>
+        <h2>A look inside</h2>
         <p>A quick tour of the screens clients and teams use every day.</p>
       </section>
       <section className="section">

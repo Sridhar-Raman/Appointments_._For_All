@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import Icon from '../../components/Icon';
 import HeroArt from '../../components/site/HeroArt';
 import { homeFor, useAuth } from '../../context/AuthContext';
+import About from './About';
+import Faq from './Faq';
+import Gallery from './Gallery';
 
 const FEATURES = [
     { icon: 'zap', title: 'Book in a minute', text: 'Choose a service, pick a day and tap a time. No phone calls, no back-and-forth.' },
@@ -19,12 +22,13 @@ const STEPS = [
 const Home = () => {
     const { user } = useAuth();
     return (<>
+      <div id="home" className="site-section hero-wrap">
       <section className="hero">
         <div className="hero-copy">
           <h1>Appointment<br />Booking</h1>
           <p>Pick a service, choose a time that suits you and get booked in seconds. Everything you need to schedule, move or cancel an appointment — all in one place.</p>
           <div className="hero-actions">
-            <Link to="/about" className="pill-btn">More</Link>
+            <a href="#about" className="pill-btn">More</a>
             <Link to={user ? homeFor(user) : '/signup'} className="pill-btn pill-ghost">{user ? 'Go to my account' : 'Book now'}<Icon name="arrow-right" size={16} /></Link>
           </div>
         </div>
@@ -59,6 +63,12 @@ const Home = () => {
           ))}
         </ol>
       </section>
+
+      </div>
+
+      <div id="about" className="site-section"><About /></div>
+      <div id="gallery" className="site-section"><Gallery /></div>
+      <div id="faq" className="site-section"><Faq /></div>
 
       <section className="cta-band">
         <div>
