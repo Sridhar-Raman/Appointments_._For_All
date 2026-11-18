@@ -436,3 +436,47 @@ body:has(.site) { background: #fff; }
   .pv-tiles { gap: 8px; } .pv-tile { padding: 14px 12px; } .pv-tile b { font-size: 28px; } .pv-tile small { font-size: 13px; }
   .pv-bars { gap: 6px; height: 130px; }
 }
+
+/* ---------- every other screen (signed-in app, log in, sign up) shares the landing page's shell ---------- */
+.app-shell .content { margin-left: 0; flex: 1; width: 100%; max-width: 1480px; margin-inline: auto; padding: 28px clamp(16px, 4vw, 56px) 56px; }
+.app-shell .page-header { position: static; margin: 0 0 22px; padding: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.app-shell .page-header h1 { font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: -0.04em; color: var(--ink); }
+.app-shell .page-header p { color: var(--slate); margin-top: 6px; font-size: 16px; }
+/* the calendar fills the rest of the screen under the nav card */
+.app-shell .content:has(.cal-card) { height: calc(100dvh - 124px); min-height: 560px; padding-bottom: 20px; }
+
+.app-user { display: inline-flex; align-items: center; gap: 10px; }
+.app-user .avatar { background: #eaeffc; color: var(--ink); font-weight: 600; }
+.app-user-text { display: flex; flex-direction: column; line-height: 1.15; font-size: 14px; max-width: 150px; }
+.app-user-text b { font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-user-text small { color: var(--slate); text-transform: capitalize; }
+
+@media (min-width: 881px) {
+  .app-shell .site-header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .app-shell .site-links { gap: 2px; }
+  .app-shell .site-links a { font-size: 15px; padding: 10px 14px; white-space: nowrap; }
+  .app-shell .site-cta .pill-btn { padding: 11px 20px; font-size: 15px; }
+}
+@media (max-width: 1240px) and (min-width: 881px) {
+  .app-shell .logo-text, .app-user-text { display: none; }
+  .app-shell .site-links a { padding: 10px 11px; }
+}
+@media (max-width: 880px) {
+  .app-shell .site-cta { flex-wrap: wrap; }
+  .app-shell .content:has(.cal-card) { height: auto; min-height: calc(100dvh - 110px); }
+  .app-shell .content { padding-top: 22px; padding-bottom: 40px; }
+}
+
+/* log in / sign up: keep the drifting line icons, drop the old backdrop gradient (the canvas already has one) */
+.app-shell .auth-content { display: grid; place-items: center; min-height: 0; background: none; padding: 24px 16px 64px; overflow: visible; }
+.app-shell .auth-glow, .app-shell .auth-bg::before { display: none; }
+.app-shell .auth-deco { color: #162755; opacity: 0.08; }
+
+/* `.site a { color: inherit }` must not blank out link-styled buttons */
+.site a.btn-primary { color: var(--on-primary); }
+.site a.btn-danger { color: #fff; }
+.site a.btn-ghost { color: var(--text); }
+.site a.btn-text { color: var(--primary); }
+.site a.btn.danger { color: var(--danger); }
+
+@media (max-width: 880px) { .app-shell .grid-even, .app-shell .grid-2 { grid-template-columns: minmax(0, 1fr); } }

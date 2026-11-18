@@ -383,7 +383,7 @@ select { appearance: none; padding-right: 34px; cursor: pointer; background-imag
    Responsive
    ========================================================= */
 @media (max-width: 1000px) {
-  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
   .login-shell { grid-template-columns: 1fr; }
   .login-art { display: none; }
 }

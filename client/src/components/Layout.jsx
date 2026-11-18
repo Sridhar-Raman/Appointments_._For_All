@@ -1,40 +1,32 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Icon from './Icon';
-import Logo from './Logo';
 import { useLogoutConfirm } from './LogoutConfirm';
+import TopBar from './site/TopBar';
 
 // One menu for everybody; `roles` limits an entry to those roles. Users (account management) is admin-only.
 const NAV = [
-    { to: '/app', label: 'Dashboard', icon: 'dashboard', end: true },
-    { to: '/app/calendar', label: 'Calendar', icon: 'calendar' },
-    { to: '/app/appointment-types', label: 'Appointment Types', icon: 'tag' },
-    { to: '/app/my-appointments', label: 'My Appointments', icon: 'calendar-check', roles: ['client'] },
-    { to: '/app/book', label: 'Book', icon: 'plus', roles: ['client'] },
-    { to: '/app/users', label: 'Users', icon: 'users', roles: ['admin'] },
-    { to: '/app/profile', label: 'Profile', icon: 'user' },
+    { to: '/app', label: 'Dashboard', end: true },
+    { to: '/app/calendar', label: 'Calendar' },
+    { to: '/app/appointment-types', label: 'Appointment Types' },
+    { to: '/app/my-appointments', label: 'My Appointments', roles: ['client'] },
+    { to: '/app/book', label: 'Book', roles: ['client'] },
+    { to: '/app/users', label: 'Users', roles: ['admin'] },
+    { to: '/app/profile', label: 'Profile' },
 ];
 
+/** Signed-in screens use the landing page's look: inset gradient canvas with the floating nav card on top. */
 const Layout = () => {
     const { user } = useAuth();
     const askLogout = useLogoutConfirm();
-    return (<div className="shell">
-      <aside className="sidebar">
-        <div className="brand"><Logo to="/app" tone="rail" size={36} slogan={false} /></div>
-        <nav aria-label="Main">
-          {NAV.filter((item) => !item.roles || item.roles.includes(user.role)).map((item) => (
-            <NavLink key={item.to} to={item.to} end={item.end}><Icon name={item.icon} /><span className="nav-text">{item.label}</span></NavLink>
-          ))}
-        </nav>
-        {/* signed-in user: name and role, with Log out directly beneath */}
-        <div className="sidebar-user">
-          <div className="sidebar-foot">
-            <span className="avatar">{user.name.slice(0, 1)}</span>
-            <div className="who"><span>{user.name}</span><small>{user.role}</small></div>
-          </div>
-          <button type="button" className="sidebar-logout" onClick={askLogout}><Icon name="log-out" /><span className="nav-text">Log out</span></button>
-        </div>
-      </aside>
+    return (<div className="site theme-brand app-shell">
+      <TopBar logoTo="/app" links={NAV.filter((item) => !item.roles || item.roles.includes(user.role))}>
+        <span className="app-user">
+          <span className="avatar">{user.name.slice(0, 1)}</span>
+          <span className="app-user-text"><b>{user.name}</b><small>{user.role}</small></span>
+        </span>
+        <button type="button" className="pill-btn pill-ghost" onClick={askLogout}><Icon name="log-out" size={15} />Log out</button>
+      </TopBar>
       <main className="content"><div className="page"><Outlet /></div></main>
     </div>);
 };

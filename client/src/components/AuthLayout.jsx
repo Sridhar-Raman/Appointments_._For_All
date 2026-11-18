@@ -1,12 +1,12 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import Icon from './Icon';
-import Logo from './Logo';
+import { Link, Outlet } from 'react-router-dom';
+import TopBar from './site/TopBar';
 
-// Signed-out visitors get the app's own shell (plum page + side menu), not the marketing site's header and footer.
-const ITEMS = [
-    { to: '/', label: 'Home', icon: 'home', end: true },
-    { to: '/login', label: 'Log in', icon: 'log-in' },
-    { to: '/signup', label: 'Sign up', icon: 'user-plus' },
+// Signed-out visitors get the landing page's look: same floating nav card, with the home sections one click away.
+const LINKS = [
+    { to: '/', label: 'Home', end: true },
+    { to: '/#gallery', label: 'Gallery' },
+    { to: '/#about', label: 'About' },
+    { to: '/#faq', label: 'FAQ' },
 ];
 
 /** Purely decorative backdrop for the sign-in pages: gradient glows, a dot grid and drifting line icons. */
@@ -38,15 +38,11 @@ const AuthBackdrop = () => (
 );
 
 const AuthLayout = () => (
-  <div className="shell">
-    <aside className="sidebar">
-      <div className="brand"><Logo to="/" tone="rail" size={36} slogan={false} /></div>
-      <nav aria-label="Account">
-        {ITEMS.map((item) => (
-          <NavLink key={item.to} to={item.to} end={item.end}><Icon name={item.icon} /><span className="nav-text">{item.label}</span></NavLink>
-        ))}
-      </nav>
-    </aside>
+  <div className="site theme-brand app-shell">
+    <TopBar logoTo="/" links={LINKS}>
+      <Link to="/login" className="text-link">Log in</Link>
+      <Link to="/signup" className="pill-btn">Sign up</Link>
+    </TopBar>
     <main className="content auth-content">
       <AuthBackdrop />
       <Outlet />
