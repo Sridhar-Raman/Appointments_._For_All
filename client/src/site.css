@@ -380,7 +380,7 @@
 
 /* ---------- home page, in the same style as the In-App Mail site ---------- */
 /* the sky-to-blush canvas sits inset on a white page with big rounded corners */
-body:has(.site) { background: #fff; }
+body:has(.site), body:has(.app-canvas) { background: #fff; }
 .site { margin: 8px; min-height: calc(100vh - 16px); border-radius: 40px; overflow: clip; }
 .site-footer { margin: 40px 12px 12px; }
 
@@ -438,10 +438,10 @@ body:has(.site) { background: #fff; }
 }
 
 /* ---------- every other screen (signed-in app, log in, sign up) shares the landing page's shell ---------- */
-.app-shell .content { margin-left: 0; flex: 1; width: 100%; max-width: 1480px; margin-inline: auto; padding: 28px clamp(16px, 4vw, 56px) 56px; }
-.app-shell .page-header { position: static; margin: 0 0 22px; padding: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
-.app-shell .page-header h1 { font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: -0.04em; color: var(--ink); }
-.app-shell .page-header p { color: var(--slate); margin-top: 6px; font-size: 16px; }
+.app-shell .content, .app-canvas .content { margin-left: 0; flex: 1; width: 100%; max-width: 1480px; margin-inline: auto; padding: 28px clamp(16px, 4vw, 56px) 56px; }
+.app-shell .page-header, .app-canvas .page-header { position: static; margin: 0 0 22px; padding: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.app-shell .page-header h1, .app-canvas .page-header h1 { font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: -0.04em; color: var(--ink); }
+.app-shell .page-header p, .app-canvas .page-header p { color: var(--slate); margin-top: 6px; font-size: 16px; }
 /* the calendar fills the rest of the screen under the nav card */
 .app-shell .content:has(.cal-card) { height: calc(100dvh - 124px); min-height: 560px; padding-bottom: 20px; }
 
@@ -479,4 +479,52 @@ body:has(.site) { background: #fff; }
 .site a.btn-text { color: var(--primary); }
 .site a.btn.danger { color: var(--danger); }
 
-@media (max-width: 880px) { .app-shell .grid-even, .app-shell .grid-2 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 880px) { .app-shell .grid-even, .app-shell .grid-2, .app-canvas .grid-even, .app-canvas .grid-2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- signed-in app: left menu on the landing canvas, transparent ---------- */
+.app-canvas {
+  position: relative; margin: 8px; min-height: calc(100vh - 16px); border-radius: 40px; overflow: clip; color: var(--ink);
+  font-family: var(--font);
+  background-color: #fff1f8;
+  background-image:
+    radial-gradient(rgba(22, 39, 85, 0.09) 1.1px, transparent 1.3px),
+    linear-gradient(180deg, #a9ceff 0%, #cdd9fb 32%, #f3d9f3 62%, #ffc6e2 92%, #fff1f8 100%);
+  background-size: 22px 22px, 100% max(100vh, 760px);
+  background-repeat: repeat, no-repeat;
+}
+.app-canvas .content { margin-left: calc(var(--rail) + 8px); margin-right: 0; max-width: none; padding: 32px clamp(16px, 3.5vw, 48px) 56px; }
+.app-canvas .page { max-width: 1280px; }
+.app-canvas .content:has(.cal-card) { height: calc(100dvh - 16px); min-height: 560px; padding-bottom: 20px; }
+
+/* the rail: no background of its own; a soft glass panel appears only while it is open */
+.app-canvas .sidebar, .app-canvas .sidebar:hover, .app-canvas .sidebar:has(:focus-visible) {
+  --sidebar-bg: transparent; top: 8px; bottom: 8px; left: 8px; color: var(--ink); background: none; border-radius: 32px;
+  transition: width .24s cubic-bezier(.2, .7, .2, 1), background .2s ease, box-shadow .2s ease;
+}
+.app-canvas .sidebar:hover, .app-canvas .sidebar:has(:focus-visible) {
+  background: rgba(255, 255, 255, 0.9); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 10px 40px rgba(22, 39, 85, 0.18);
+}
+.app-canvas .logo-rail { --logo-a: #162755; --logo-b: #162755; --logo-ink: #ffffff; --logo-dot: #ff268b; }
+.app-canvas .sidebar nav a { color: rgba(22, 39, 85, 0.7); }
+.app-canvas .sidebar nav a:hover { color: var(--ink); background: rgba(22, 39, 85, 0.07); }
+.app-canvas .sidebar nav a.active { color: var(--ink); background: #fff; box-shadow: 0 1px 2px rgba(22, 39, 85, 0.08), 0 6px 16px rgba(22, 39, 85, 0.1); }
+.app-canvas .sidebar nav a.active svg { color: #ff268b; }
+.app-canvas .sidebar nav a.active::before { background: #ff268b; }
+.app-canvas .sidebar-user { border-top-color: rgba(22, 39, 85, 0.12); }
+.app-canvas .sidebar-foot .who { color: var(--ink); }
+.app-canvas .sidebar-foot .who small { color: var(--slate); }
+.app-canvas .sidebar .avatar { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(22, 39, 85, 0.1); }
+.app-canvas .sidebar-logout { color: rgba(22, 39, 85, 0.62); }
+.app-canvas .sidebar-logout:hover { color: #c4213f; background: rgba(196, 33, 63, 0.08); border-color: rgba(196, 33, 63, 0.25); }
+
+@media (max-width: 860px) {
+  .app-canvas { margin: 4px; border-radius: 28px; min-height: calc(100vh - 8px); }
+  /* phones: the rail becomes a floating glass tab bar along the bottom */
+  .app-canvas .sidebar, .app-canvas .sidebar:hover, .app-canvas .sidebar:has(:focus-visible) {
+    inset: auto 10px 10px 10px; width: auto; height: 64px; padding: 0 8px; border-radius: 22px;
+    background: rgba(255, 255, 255, 0.86); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); box-shadow: 0 10px 34px rgba(22, 39, 85, 0.2);
+  }
+  .app-canvas .sidebar nav a.active { box-shadow: none; background: rgba(22, 39, 85, 0.07); }
+  .app-canvas .content { margin-left: 0; padding: 22px 16px 104px; }
+  .app-canvas .content:has(.cal-card) { height: auto; min-height: calc(100dvh - 8px); padding-bottom: 104px; }
+}
